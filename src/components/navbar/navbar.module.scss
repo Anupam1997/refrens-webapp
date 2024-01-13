@@ -1,0 +1,27 @@
+.navBar {
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  .logo {
+    img {
+      height: 60px;
+      width: auto;
+    }
+  }
+
+  .navLinks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 100px;
+    .navLink {
+      color: black;
+      font-weight: 500;
+    }
+  }
+}
