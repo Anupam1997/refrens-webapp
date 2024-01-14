@@ -1,9 +1,10 @@
 import { ApiHelper, handleApiError } from "./utils";
 
-export const getLocations = async (name?: string) => {
+export const getEpisodes = async (page: number, name?: string) => {
   try {
-    const { data } = await ApiHelper.get(`/location`, {
+    const { data } = await ApiHelper.get(`/episode`, {
       params: {
+        page,
         name,
       },
     });
@@ -13,9 +14,9 @@ export const getLocations = async (name?: string) => {
   }
 };
 
-export const getLocationById = async (id: string) => {
+export const getEpisodeById = async (id: string) => {
   try {
-    const { data } = await ApiHelper.get(`/location/${id}`);
+    const { data } = await ApiHelper.get(`/episode/${id}`);
     return { error: null, data };
   } catch (error: any) {
     return handleApiError(error);

@@ -1,9 +1,10 @@
 import { ApiHelper, handleApiError } from "./utils";
 
-export const getLocations = async (name?: string) => {
+export const getLocations = async (page?: number, name?: string) => {
   try {
     const { data } = await ApiHelper.get(`/location`, {
       params: {
+        page,
         name,
       },
     });
