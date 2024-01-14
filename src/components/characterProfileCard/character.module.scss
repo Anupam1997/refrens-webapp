@@ -1,0 +1,23 @@
+.characterName {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 8px;
+}
+
+.characterLocation {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 8px;
+}
+.statusChip {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #00ff00;
+}

@@ -1,8 +1,7 @@
 import { useState } from "react";
-import InfiniteScroll from "react-infinite-scroller";
 import { getEpisodes } from "../service/episodeApi";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
-import { Container } from "../components/Container.tsx/Container";
+import { Container } from "../components/container/Container";
 
 function EpisodesList() {
   const [loading, setLoading] = useState(false);
@@ -32,22 +31,15 @@ function EpisodesList() {
       {loading ? (
         "Loading..."
       ) : (
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={getAllEpisodes}
-          hasMore={hasMore}
-          loader={<div key={0}>Loading...</div>}
-        >
-          <GridContainer>
-            {episodes.map((episode: any, i: number) => {
-              return (
-                <GridItem key={i}>
-                  <div>{episode.name}</div>
-                </GridItem>
-              );
-            })}
-          </GridContainer>
-        </InfiniteScroll>
+        <GridContainer>
+          {episodes.map((episode: any, i: number) => {
+            return (
+              <GridItem key={i}>
+                <div>{episode.name}</div>
+              </GridItem>
+            );
+          })}
+        </GridContainer>
       )}
     </Container>
   );

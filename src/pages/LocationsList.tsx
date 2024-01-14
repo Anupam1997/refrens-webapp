@@ -1,8 +1,7 @@
 import { useState } from "react";
-import InfiniteScroll from "react-infinite-scroller";
 import { getLocations } from "../service/locationApi";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
-import { Container } from "../components/Container.tsx/Container";
+import { Container } from "../components/container/Container";
 
 function LocationsList() {
   const [loading, setLoading] = useState(false);
@@ -32,18 +31,11 @@ function LocationsList() {
       {loading ? (
         "Loading..."
       ) : (
-        <InfiniteScroll
-          pageStart={0}
-          loadMore={getAllLocations}
-          hasMore={hasMore}
-          loader={<div key={0}>Loading...</div>}
-        >
-          <GridContainer>
-            {locations.map((location: any, i: number) => {
-              return <GridItem key={i}>{location.name}</GridItem>;
-            })}
-          </GridContainer>
-        </InfiniteScroll>
+        <GridContainer>
+          {locations.map((location: any, i: number) => {
+            return <GridItem key={i}>{location.name}</GridItem>;
+          })}
+        </GridContainer>
       )}
     </Container>
   );
