@@ -1,0 +1,24 @@
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change the color on hover */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Set the color of the scrollbar handle */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #000; /* Set the color of the scrollbar track */
+}
+
+/* Handle on active */
+::-webkit-scrollbar-thumb:active {
+  background: #555; /* Change the color when the handle is active */
+}
