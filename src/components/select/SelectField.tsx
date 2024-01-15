@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 type Option = {
   label: string;
   value: string;
@@ -12,6 +13,26 @@ type ISelectFieldProps = {
   options: Option[];
 };
 
+const StyledSelect = styled.select`
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+
+  &:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add box shadow on focus */
+  }
+`;
+
+const StyledOption = styled.option`
+  background-color: rgba(0, 0, 0, 1);
+`;
+
 function SelectField({
   name,
   id,
@@ -20,12 +41,12 @@ function SelectField({
   options,
 }: ISelectFieldProps) {
   return (
-    <select name={name} id={id} value={value} onChange={onChange}>
-      <option value={""}>{`Select ${name}`}</option>
+    <StyledSelect name={name} id={id} value={value} onChange={onChange}>
+      <StyledOption value={""}>{`Select ${name}`}</StyledOption>
       {options.map(({ label, value }) => {
-        return <option value={value}>{label}</option>;
+        return <StyledOption value={value}>{label}</StyledOption>;
       })}
-    </select>
+    </StyledSelect>
   );
 }
 

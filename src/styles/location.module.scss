@@ -1,0 +1,28 @@
+.heading {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+.locationName {
+  color: #fff;
+}
+
+.locationDimension {
+  color: #fff;
+}
+
+.locationType {
+  color: #fff;
+}
+
+.detailContainer {
+  .label {
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .value {
+    font-weight: 600;
+    font-size: 18px;
+  }
+}

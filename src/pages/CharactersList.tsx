@@ -7,6 +7,8 @@ import SearchField from "../components/search/Search";
 import SelectField from "../components/select/SelectField";
 import CharacterProfileCard from "../components/characterProfileCard/CharacterProfileCard";
 import Pagination from "../components/pagination/Pagination";
+import Empty from "../components/empty/Empty";
+import Loader from "../components/loader/Loader";
 
 const genderOptions = [
   { label: GenderType.MALE, value: GenderType.MALE },
@@ -33,6 +35,7 @@ function CharactersList() {
 
   const getAllCharacters = useCallback(async () => {
     try {
+      setLoading(true);
       const { data } = await getCharacters(
         page,
         name ? name : undefined,
@@ -44,94 +47,103 @@ function CharactersList() {
 
       setCharacters(data.results);
       setTotalPages(data.info.pages);
+      setLoading(false);
     } catch (error) {
       setCharacters([]);
+      setLoading(false);
+      console.log(error);
     }
   }, [gender, name, page, species, status, type]);
 
   useEffect(() => {
     // get all character when filters or page changes
-    console.log("called");
     getAllCharacters();
   }, [gender, getAllCharacters, name, species, status, type]);
 
   return (
     <Container>
-      <SearchField
-        onChange={(e: any) => {
-          setPage(() => 1);
-          setName(e.target.value);
-        }}
-        value={name}
-        placeholder={"Search by name..."}
-      />
+      <GridContainer>
+        <SearchField
+          onChange={(e: any) => {
+            setPage(() => 1);
+            setName(e.target.value);
+          }}
+          value={name}
+          placeholder={"Search by name..."}
+        />
 
-      <SearchField
-        onChange={(e: any) => {
-          setPage(() => 1);
-          setSpeices(e.target.value);
-        }}
-        value={species}
-        placeholder={"Search by species..."}
-      />
+        <SelectField
+          name="Gender"
+          id="genders"
+          value={gender}
+          onChange={(e) => {
+            setPage(() => 1);
+            setGender(e.target.value as Gender);
+          }}
+          options={genderOptions}
+        />
 
-      <SearchField
-        onChange={(e: any) => {
-          setPage(() => 1);
-          setType(e.target.value);
-        }}
-        value={type}
-        placeholder={"Search by type..."}
-      />
+        <SelectField
+          name="Status"
+          id="status"
+          value={status}
+          onChange={(e) => {
+            setPage(() => 1);
+            setStatus(e.target.value as Status);
+          }}
+          options={statusOptions}
+        />
 
-      <SelectField
-        name="Gender"
-        id="genders"
-        value={gender}
-        onChange={(e) => {
-          setPage(() => 1);
-          setGender(e.target.value as Gender);
-        }}
-        options={genderOptions}
-      />
+        <SearchField
+          onChange={(e: any) => {
+            setPage(() => 1);
+            setSpeices(e.target.value);
+          }}
+          value={species}
+          placeholder={"Search by species..."}
+        />
 
-      <SelectField
-        name="Status"
-        id="status"
-        value={status}
-        onChange={(e) => {
-          setPage(() => 1);
-          setStatus(e.target.value as Status);
-        }}
-        options={statusOptions}
-      />
-
+        <SearchField
+          onChange={(e: any) => {
+            setPage(() => 1);
+            setType(e.target.value);
+          }}
+          value={type}
+          placeholder={"Search by type..."}
+        />
+      </GridContainer>
       {loading ? (
-        "Loading..."
+        <Loader />
       ) : (
         <>
-          <GridContainer>
-            {characters.map((character: any, i: number) => {
-              return (
-                <GridItem key={i}>
-                  <CharacterProfileCard
-                    id={character.id}
-                    name={character.name}
-                    status={character.status}
-                    location={character.location.name}
-                    image={character.image}
-                  />
-                </GridItem>
-              );
-            })}
-          </GridContainer>
-          <Pagination
-            currentPage={page}
-            totalPages={totalPages}
-            onPageChange={(currPage) =>
-              page !== currPage ? setPage(currPage) : null
-            }
-          />
+          {characters.length ? (
+            <>
+              <GridContainer>
+                {characters.map((character: any, i: number) => {
+                  return (
+                    <GridItem key={i}>
+                      <CharacterProfileCard
+                        id={character.id}
+                        name={character.name}
+                        status={character.status}
+                        location={character.location.name}
+                        image={character.image}
+                      />
+                    </GridItem>
+                  );
+                })}
+              </GridContainer>
+              <Pagination
+                currentPage={page}
+                totalPages={totalPages}
+                onPageChange={(currPage) =>
+                  page !== currPage ? setPage(currPage) : null
+                }
+              />
+            </>
+          ) : (
+            <Empty name={"Characters"} />
+          )}
         </>
       )}
     </Container>

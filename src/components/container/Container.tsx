@@ -36,4 +36,5 @@ export const GridItem = styled.div`
   background-color: #f8f8f8;
   text-align: center;
   font-size: 18px;
+  color: #fff;
 `;

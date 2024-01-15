@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import styles from "./navbar.module.scss";
 import Logo from "../../assets/Rick-and-Morty-Logo.png";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
   const [openMenu, setOpenMenu] = useState(false);
-
-  const navigateTo = (link: string) => {
-    navigate(link);
-    setOpenMenu(false);
-  };
 
   return (
     <div className={`${styles.navBar} ${openMenu ? styles.navBarMobile : ""}`}>
@@ -19,24 +14,48 @@ function Navbar() {
           <img src={Logo} alt="logo" />
         </div>
         <div className={styles.navLinks}>
-          <div
-            onClick={() => navigateTo("characters")}
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isActive ? "yellow" : "",
+                textDecoration: isActive ? "underline" : "",
+              };
+            }}
+            to="characters"
+            onClick={() => setOpenMenu(false)}
             className={styles.navLink}
           >
             Characters
-          </div>
-          <div
-            onClick={() => navigateTo("locations")}
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isActive ? "yellow" : "",
+                textDecoration: isActive ? "underline" : "",
+              };
+            }}
+            to="locations"
+            onClick={() => setOpenMenu(false)}
             className={styles.navLink}
           >
             Locations
-          </div>
-          <div
-            onClick={() => navigateTo("episodes")}
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isActive ? "yellow" : "",
+                textDecoration: isActive ? "underline" : "",
+              };
+            }}
+            to="episodes"
+            onClick={() => setOpenMenu(false)}
             className={styles.navLink}
           >
             Episodes
-          </div>
+          </NavLink>
         </div>
         <div
           className={styles.hamburgerIcon}
@@ -51,24 +70,48 @@ function Navbar() {
       </div>
       {openMenu && (
         <div className={styles.mobileMenu}>
-          <div
-            onClick={() => navigateTo("characters")}
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isActive ? "yellow" : "",
+                textDecoration: isActive ? "underline" : "",
+              };
+            }}
+            to="characters"
+            onClick={() => setOpenMenu(false)}
             className={styles.navLink}
           >
             Characters
-          </div>
-          <div
-            onClick={() => navigateTo("locations")}
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isActive ? "yellow" : "",
+                textDecoration: isActive ? "underline" : "",
+              };
+            }}
+            to="locations"
+            onClick={() => setOpenMenu(false)}
             className={styles.navLink}
           >
             Locations
-          </div>
-          <div
-            onClick={() => navigateTo("episodes")}
+          </NavLink>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isActive ? "yellow" : "",
+                textDecoration: isActive ? "underline" : "",
+              };
+            }}
+            to="episodes"
+            onClick={() => setOpenMenu(false)}
             className={styles.navLink}
           >
             Episodes
-          </div>
+          </NavLink>
         </div>
       )}
     </div>

@@ -1,11 +1,11 @@
 .navBar {
   position: fixed;
   width: 100%;
-  background-color: transparent;
+  background-color: rgba($color: #fff, $alpha: 0.1);
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
   z-index: 1;
   @media (max-width: 576px) {
-    background-color: #fff;
+    background-color: rgba($color: #fff, $alpha: 0.1);
   }
   .navbarInner {
     display: flex;
@@ -17,6 +17,7 @@
       justify-content: space-between;
     }
     .logo {
+      cursor: pointer;
       img {
         height: 60px;
         width: auto;
@@ -36,13 +37,15 @@
         display: none;
       }
       .navLink {
-        color: #333333;
+        color: #fff;
         font-weight: 500;
         cursor: pointer;
+        text-decoration: none;
       }
     }
 
     .hamburgerIcon {
+      color: #fff;
       display: none;
       @media (max-width: 576px) {
         display: block;
@@ -60,11 +63,14 @@
   }
 
   .navLink {
-    color: #333333;
+    color: #fff;
+    background-color: rgba($color: #000, $alpha: 0.8);
     // border-top: 1px solid lightgray;
     padding: 10px 20px 10px 20px;
     font-weight: 500;
     font-size: 14px;
     cursor: pointer;
+    display: block;
+    text-decoration: none;
   }
 }

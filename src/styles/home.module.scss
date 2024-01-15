@@ -1,0 +1,15 @@
+.dispCard {
+  height: 400px;
+  background-position: right;
+  display: flex;
+  width: 100%;
+}
+.content {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 10px;
+  backdrop-filter: opacity(50%);
+}

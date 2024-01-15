@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/notFound.module.scss";
 import { Link } from "react-router-dom";
+import styles from "../styles/notFound.module.scss";
 function NotFound() {
   return (
     <div className={styles.notFoundContainer}>

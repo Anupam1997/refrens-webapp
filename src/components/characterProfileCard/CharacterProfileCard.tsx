@@ -19,7 +19,10 @@ function CharacterProfileCard({
 }: ICharacterProfileCard) {
   const navigate = useNavigate();
   return (
-    <CardContainer onClick={() => navigate(`${id}`)}>
+    <CardContainer
+      backgroundColor="#010101"
+      onClick={() => navigate(`/characters/${id}`)}
+    >
       <div
         className={styles.statusChip}
         style={{
@@ -38,7 +41,7 @@ function CharacterProfileCard({
         <p className={styles.characterName}>{name}</p>
 
         <p className={styles.characterLocation}>
-          <span>Location: </span>
+          <span>Location Seen: </span>
           {location}
         </p>
       </CardDetails>

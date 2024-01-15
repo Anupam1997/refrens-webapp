@@ -1,0 +1,73 @@
+.detailContainer {
+  display: flex;
+  align-items: center;
+  .label {
+    font-weight: 400;
+    font-size: 14;
+    color: yellow;
+    margin-right: 20px;
+  }
+}
+.name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.type {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.locationLink {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  color: #fff;
+}
+.gender {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.species {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.status {
+  padding: 8px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+.episodeDetails {
+  h4 {
+    text-align: center;
+    color: #fff;
+  }
+}
+
+.episodeCard {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: #f7f7f7;
+  .episodeName {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .episodeDate {
+    font-size: 12px;
+    font-weight: 500;
+    color: darkblue;
+  }
+}
