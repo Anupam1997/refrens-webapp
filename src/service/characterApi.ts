@@ -21,7 +21,7 @@ export const getCharacters = async (
       },
     });
     return { error: null, data };
-  } catch (error: any) {
+  } catch (error) {
     return handleApiError(error);
   }
 };
@@ -30,7 +30,7 @@ export const getCharacterById = async (id: string) => {
   try {
     const { data } = await ApiHelper.get(`/character/${id}`);
     return { error: null, data };
-  } catch (error: any) {
+  } catch (error) {
     return handleApiError(error);
   }
 };

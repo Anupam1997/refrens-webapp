@@ -1,8 +1,9 @@
+import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 
 type ISearchFieldProps = {
-  onChange: (value: any) => void;
-  value: any;
+  onChange: (value: ChangeEvent<HTMLInputElement>) => void;
+  value: string | number;
   placeholder: string;
 };
 

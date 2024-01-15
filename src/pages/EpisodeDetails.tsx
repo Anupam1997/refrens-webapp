@@ -7,13 +7,14 @@ import CharacterProfileCard from "../components/characterProfileCard/CharacterPr
 import { getEpisodeById } from "../service/episodeApi";
 import Loader from "../components/loader/Loader";
 import styles from "../styles/episode.module.scss";
+import { Character, Episode } from "../types/common";
 
 function EpisodeDetails() {
   const params = useParams();
   const { id } = params; // get id from params
   const [loading, setLoading] = useState(false);
-  const [episodeDetails, setEpisodeDetails] = useState<any>(null);
-  const [characters, setCharacters] = useState<any[]>([]);
+  const [episodeDetails, setEpisodeDetails] = useState<Episode>();
+  const [characters, setCharacters] = useState<Character[]>([]);
 
   const getEpisodeDetails = useCallback(async (id: string) => {
     try {
@@ -31,7 +32,7 @@ function EpisodeDetails() {
 
   const getCharacters = async (characters: string[]) => {
     // list of all ids from location details
-    let ids = characters.map((resident) =>
+    const ids = characters.map((resident) =>
       parseInt(
         resident.replace("https://rickandmortyapi.com/api/character/", "")
       )
@@ -86,7 +87,7 @@ function EpisodeDetails() {
             <h4 className={styles.heading}>{"Related Characters"}</h4>
 
             <GridContainer>
-              {characters.map((character: any, i: number) => {
+              {characters.map((character: Character, i: number) => {
                 return (
                   <GridItem key={i}>
                     <CharacterProfileCard

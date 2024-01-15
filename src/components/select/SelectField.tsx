@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styled from "styled-components";
 type Option = {
   label: string;
@@ -9,7 +9,7 @@ type ISelectFieldProps = {
   name: string;
   id: string;
   value: string;
-  onChange: (value: any) => void;
+  onChange: (value: ChangeEvent<HTMLSelectElement>) => void;
   options: Option[];
 };
 
@@ -44,7 +44,11 @@ function SelectField({
     <StyledSelect name={name} id={id} value={value} onChange={onChange}>
       <StyledOption value={""}>{`Select ${name}`}</StyledOption>
       {options.map(({ label, value }) => {
-        return <StyledOption value={value}>{label}</StyledOption>;
+        return (
+          <StyledOption key={value} value={value}>
+            {label}
+          </StyledOption>
+        );
       })}
     </StyledSelect>
   );

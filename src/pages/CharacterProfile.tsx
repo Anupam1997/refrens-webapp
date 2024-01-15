@@ -16,16 +16,17 @@ import {
 import Loader from "../components/loader/Loader";
 import Image from "../assets/bg1.jpg";
 import styles from "../styles/characterProfile.module.scss";
+import { Character, Episode, Location } from "../types/common";
 
 function CharacterProfile() {
   const params = useParams();
   const { id } = params; // get id from params
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [character, setCharacter] = useState<any>();
-  const [originDetails, setOriginDetails] = useState<any>(null);
-  const [locationDetails, setLocationDetails] = useState<any>(null);
-  const [episodesList, setEpisodesList] = useState<any[]>([]);
+  const [character, setCharacter] = useState<Character>();
+  const [originDetails, setOriginDetails] = useState<Location>();
+  const [locationDetails, setLocationDetails] = useState<Location>();
+  const [episodesList, setEpisodesList] = useState<Episode[]>([]);
 
   const getCharacterDetail = useCallback(async (id: string) => {
     try {
@@ -46,7 +47,7 @@ function CharacterProfile() {
   // getting location details
   const getDetails = async (url: string, location: "origin" | "current") => {
     // id from provided url
-    let id = url.replace("https://rickandmortyapi.com/api/location/", "");
+    const id = url.replace("https://rickandmortyapi.com/api/location/", "");
     try {
       const { data } = await getLocationById(id);
       // setting origin or current location in state
@@ -60,7 +61,7 @@ function CharacterProfile() {
   // get featured episodes
   const getFeaturedEpisodes = async (episode: string[]) => {
     // list of all ids from character details
-    let ids = episode.map((ep) =>
+    const ids = episode.map((ep) =>
       parseInt(ep.replace("https://rickandmortyapi.com/api/episode/", ""))
     );
 
@@ -205,7 +206,7 @@ function CharacterProfile() {
             <h4>{"Episodes featured"}</h4>
 
             <GridContainer>
-              {episodesList.map((episode: any, i: number) => {
+              {episodesList.map((episode: Episode, i: number) => {
                 return (
                   <GridItem key={i}>
                     <CardContainer

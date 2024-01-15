@@ -1,6 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { getCharacters } from "../service/characterApi";
-import { Gender, GenderType, Status, StatusType } from "../types/common";
+import {
+  Character,
+  Gender,
+  GenderType,
+  Status,
+  StatusType,
+} from "../types/common";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
 import { Container } from "../components/container/Container";
 import SearchField from "../components/search/Search";
@@ -25,7 +31,7 @@ const statusOptions = [
 function CharactersList() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [characters, setCharacters] = useState<any[]>([]);
+  const [characters, setCharacters] = useState<Character[]>([]);
   const [status, setStatus] = useState<Status | "">("");
   const [name, setName] = useState<string>("");
   const [species, setSpeices] = useState<string>("");
@@ -64,7 +70,7 @@ function CharactersList() {
     <Container>
       <GridContainer>
         <SearchField
-          onChange={(e: any) => {
+          onChange={(e) => {
             setPage(() => 1);
             setName(e.target.value);
           }}
@@ -95,7 +101,7 @@ function CharactersList() {
         />
 
         <SearchField
-          onChange={(e: any) => {
+          onChange={(e) => {
             setPage(() => 1);
             setSpeices(e.target.value);
           }}
@@ -104,7 +110,7 @@ function CharactersList() {
         />
 
         <SearchField
-          onChange={(e: any) => {
+          onChange={(e) => {
             setPage(() => 1);
             setType(e.target.value);
           }}
@@ -119,7 +125,7 @@ function CharactersList() {
           {characters.length ? (
             <>
               <GridContainer>
-                {characters.map((character: any, i: number) => {
+                {characters.map((character: Character, i: number) => {
                   return (
                     <GridItem key={i}>
                       <CharacterProfileCard

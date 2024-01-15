@@ -19,9 +19,9 @@ export const CardContainer = styled.div<CardContainerProps>`
   position: relative;
   background-size: cover;
   background-origin: content-box;
-  background-color: ${(props: any) => props.backgroundColor || "#fff"};
-  background-image: ${(props: any) => props.backgroundimage || ""};
-  margin: ${(props: any) => props.margin || 0};
+  background-color: ${(props) => props.backgroundColor || "#fff"};
+  background-image: ${(props) => props.backgroundimage || ""};
+  margin: ${(props) => props.margin || 0};
 
   &:hover {
     border: 2px solid #42b4ca;

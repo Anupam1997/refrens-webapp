@@ -9,11 +9,11 @@ function NotFound() {
           <span>404 - Not Found</span>
         </h2>
         <p>
-          <span>"Wubba Lubba Dub Dub!"</span>
+          <span>&quot;Wubba Lubba Dub Dub&quot;</span>
         </p>
         <p>
           <span>
-            Looks like you're in an alternate dimension. Go back{" "}
+            Looks like you&apos;re in an alternate dimension. Go back{" "}
             <Link to="/">home</Link>!
           </span>
         </p>

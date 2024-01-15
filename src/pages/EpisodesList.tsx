@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getEpisodes } from "../service/episodeApi";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
@@ -11,10 +11,11 @@ import {
 } from "../components/characterProfileCard/StyledCard";
 import Loader from "../components/loader/Loader";
 import Image from "../assets/bg1.jpg";
+import { Episode } from "../types/common";
 function EpisodesList() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [episodes, setEpisodes] = useState<any[]>([]);
+  const [episodes, setEpisodes] = useState<Episode[]>([]);
   const [name, setName] = useState<string>("");
   const [totalPages, setTotalPages] = useState<number>(0);
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function EpisodesList() {
     <Container>
       <GridContainer>
         <SearchField
-          onChange={(e: any) => {
+          onChange={(e) => {
             setPage(() => 1);
             setName(e.target.value);
           }}
@@ -52,7 +53,7 @@ function EpisodesList() {
       ) : (
         <>
           <GridContainer>
-            {episodes.map((episode: any, i: number) => {
+            {episodes.map((episode: Episode, i: number) => {
               return (
                 <GridItem key={i}>
                   <CardContainer

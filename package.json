@@ -25,9 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
- 
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -49,6 +49,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.23.3",
     "@types/jest": "^29.5.11",
+    "@typescript-eslint/parser": "^5.62.0",
     "ts-jest": "^29.1.1"
   }
 }

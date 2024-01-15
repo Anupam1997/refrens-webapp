@@ -31,7 +31,7 @@ const Empty = ({ name }: { name: string }) => {
         src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
         alt="Rick and Morty"
       />
-      <p>Looks like we couldn't find anything in the multiverse!</p>
+      <p>Looks like we couldn&apos;t find anything in the multiverse!</p>
     </Wrapper>
   );
 };

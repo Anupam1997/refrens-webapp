@@ -9,7 +9,7 @@ export const getLocations = async (page?: number, name?: string) => {
       },
     });
     return { error: null, data };
-  } catch (error: any) {
+  } catch (error) {
     return handleApiError(error);
   }
 };
@@ -18,7 +18,7 @@ export const getLocationById = async (id: string) => {
   try {
     const { data } = await ApiHelper.get(`/location/${id}`);
     return { error: null, data };
-  } catch (error: any) {
+  } catch (error) {
     return handleApiError(error);
   }
 };

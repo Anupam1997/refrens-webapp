@@ -9,7 +9,7 @@ export const getEpisodes = async (page: number, name?: string) => {
       },
     });
     return { error: null, data };
-  } catch (error: any) {
+  } catch (error) {
     return handleApiError(error);
   }
 };
@@ -18,7 +18,7 @@ export const getEpisodeById = async (id: string) => {
   try {
     const { data } = await ApiHelper.get(`/episode/${id}`);
     return { error: null, data };
-  } catch (error: any) {
+  } catch (error) {
     return handleApiError(error);
   }
 };

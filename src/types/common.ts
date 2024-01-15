@@ -1,10 +1,10 @@
 export const enum StatusType {
-  ALIVE = "alive",
-  DEAD = "dead",
-  UNKNOWN = "unknown",
+  ALIVE = "Alive",
+  DEAD = "Dead",
+  UNKNOWN = "unkown",
 }
 
-export type Status = StatusType.ALIVE | StatusType.DEAD | StatusType.UNKNOWN;
+export type Status = "Alive" | "Dead" | "unknown";
 
 export const enum GenderType {
   MALE = "male",
@@ -18,3 +18,41 @@ export type Gender =
   | GenderType.FEMALE
   | GenderType.GENDERLESS
   | GenderType.UNKNOWN;
+
+// Define the character type
+export type Character = {
+  id: number;
+  name: string;
+  status: "Alive" | "Dead" | "unknown";
+  species: string;
+  type: string;
+  gender: "Male" | "Female" | "Genderless" | "unknown";
+  origin: {
+    name: string;
+    url: string;
+  };
+  location: {
+    name: string;
+    url: string;
+  };
+  image: string;
+  episode: string[]; // URLs of episodes
+  url: string; // URL of the character
+  created: string; // Date the character was created
+};
+
+export type Location = {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents?: string[];
+};
+
+export type Episode = {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters?: string[];
+};

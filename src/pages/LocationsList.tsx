@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getLocations } from "../service/locationApi";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
@@ -12,11 +12,12 @@ import {
 import Image from "../assets/bgImage.jpg";
 import Loader from "../components/loader/Loader";
 import styles from "../styles/location.module.scss";
+import { Location } from "../types/common";
 
 function LocationsList() {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [locations, setLocations] = useState<any[]>([]);
+  const [locations, setLocations] = useState<Location[]>([]);
   const [name, setName] = useState<string>("");
   const [totalPages, setTotalPages] = useState<number>(0);
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ function LocationsList() {
     <Container>
       <GridContainer>
         <SearchField
-          onChange={(e: any) => {
+          onChange={(e) => {
             setPage(() => 1);
             setName(e.target.value);
           }}
@@ -56,7 +57,7 @@ function LocationsList() {
       ) : (
         <>
           <GridContainer>
-            {locations.map((location: any, i: number) => {
+            {locations.map((location: Location, i: number) => {
               return (
                 <GridItem key={i}>
                   <CardContainer
