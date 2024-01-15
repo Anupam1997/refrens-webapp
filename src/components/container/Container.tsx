@@ -28,13 +28,3 @@ export const Container = styled.div`
   max-width: 390px;
   `}
 `;
-
-export const GridItem = styled.div`
-  padding: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
-  text-align: center;
-  font-size: 18px;
-  color: #fff;
-`;

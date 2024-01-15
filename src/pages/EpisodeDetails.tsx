@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import { getCharacterById } from "../service/characterApi";
 import { Container } from "../components/container/Container";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
-import CharacterProfileCard from "../components/characterProfileCard/CharacterProfileCard";
 import { getEpisodeById } from "../service/episodeApi";
 import Loader from "../components/loader/Loader";
-import styles from "../styles/episode.module.scss";
 import { Character, Episode } from "../types/common";
+import CharacterListRender from "../components/characterListRender/CharacterListRender";
+import styles from "../styles/episode.module.scss";
 
 function EpisodeDetails() {
   const params = useParams();
@@ -84,23 +84,8 @@ function EpisodeDetails() {
           ) : null}
 
           <div className="">
-            <h4 className={styles.heading}>{"Related Characters"}</h4>
-
-            <GridContainer>
-              {characters.map((character: Character, i: number) => {
-                return (
-                  <GridItem key={i}>
-                    <CharacterProfileCard
-                      id={character.id}
-                      name={character.name}
-                      status={character.status}
-                      location={character.location.name}
-                      image={character.image}
-                    />
-                  </GridItem>
-                );
-              })}
-            </GridContainer>
+            <h4 className={styles.heading}>{"Characters Featured"}</h4>
+            <CharacterListRender characters={characters} />
           </div>
         </>
       )}

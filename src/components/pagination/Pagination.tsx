@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import "./style.scss";
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -67,4 +68,4 @@ const Pagination = ({
   );
 };
 
-export default React.memo(Pagination);
+export default memo(Pagination);

@@ -7,14 +7,14 @@ import {
   Status,
   StatusType,
 } from "../types/common";
-import { GridContainer, GridItem } from "../components/Grid/Grid";
+import { GridContainer } from "../components/Grid/Grid";
 import { Container } from "../components/container/Container";
 import SearchField from "../components/search/Search";
 import SelectField from "../components/select/SelectField";
-import CharacterProfileCard from "../components/characterProfileCard/CharacterProfileCard";
 import Pagination from "../components/pagination/Pagination";
 import Empty from "../components/empty/Empty";
 import Loader from "../components/loader/Loader";
+import CharacterListRender from "../components/characterListRender/CharacterListRender";
 
 const genderOptions = [
   { label: GenderType.MALE, value: GenderType.MALE },
@@ -124,21 +124,7 @@ function CharactersList() {
         <>
           {characters.length ? (
             <>
-              <GridContainer>
-                {characters.map((character: Character, i: number) => {
-                  return (
-                    <GridItem key={i}>
-                      <CharacterProfileCard
-                        id={character.id}
-                        name={character.name}
-                        status={character.status}
-                        location={character.location.name}
-                        image={character.image}
-                      />
-                    </GridItem>
-                  );
-                })}
-              </GridContainer>
+              <CharacterListRender characters={characters} />
               <Pagination
                 currentPage={page}
                 totalPages={totalPages}

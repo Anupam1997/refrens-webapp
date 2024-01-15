@@ -4,10 +4,10 @@ import { getLocationById } from "../service/locationApi";
 import { getCharacterById } from "../service/characterApi";
 import { Container } from "../components/container/Container";
 import { GridContainer, GridItem } from "../components/Grid/Grid";
-import CharacterProfileCard from "../components/characterProfileCard/CharacterProfileCard";
 import Loader from "../components/loader/Loader";
-import styles from "../styles/location.module.scss";
 import { Character, Location } from "../types/common";
+import CharacterListRender from "../components/characterListRender/CharacterListRender";
+import styles from "../styles/location.module.scss";
 
 function LocationDetails() {
   const params = useParams();
@@ -94,21 +94,7 @@ function LocationDetails() {
           <div className="">
             <h4 className={styles.heading}>{"Related Characters"}</h4>
 
-            <GridContainer>
-              {characters.map((character: Character, i: number) => {
-                return (
-                  <GridItem key={i}>
-                    <CharacterProfileCard
-                      id={character.id}
-                      name={character.name}
-                      status={character.status}
-                      location={character.location?.name}
-                      image={character.image}
-                    />
-                  </GridItem>
-                );
-              })}
-            </GridContainer>
+            <CharacterListRender characters={characters} />
           </div>
         </>
       )}

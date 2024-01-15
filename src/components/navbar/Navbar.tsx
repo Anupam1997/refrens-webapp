@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./navbar.module.scss";
 import Logo from "../../assets/Rick-and-Morty-Logo.png";
-import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const navigate = useNavigate();
