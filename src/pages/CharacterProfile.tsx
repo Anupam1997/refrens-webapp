@@ -140,7 +140,7 @@ function CharacterProfile() {
             {locationDetails ? (
               <ResponsiveProfileItem>
                 <div className={styles.locationDetails}>
-                  <h4>{"Location Details"}</h4>
+                  <h4 className={styles.heading}>{"Location Details"}</h4>
                   <div className={styles.detailContainer}>
                     <p className={styles.label}>Name : </p>
                     <p
@@ -176,7 +176,7 @@ function CharacterProfile() {
             {originDetails ? (
               <ResponsiveProfileItem>
                 <div className={styles.originDetails}>
-                  <h4>{"Origin Details"}</h4>
+                  <h4 className={styles.heading}>{"Origin Details"}</h4>
                   <div className={styles.detailContainer}>
                     <p className={styles.label}>Name : </p>
                     <p className={styles.type}>{originDetails?.name}</p>

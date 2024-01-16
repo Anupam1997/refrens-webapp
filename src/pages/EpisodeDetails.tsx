@@ -58,7 +58,7 @@ function EpisodeDetails() {
         <>
           {episodeDetails ? (
             <>
-              <h4 className={styles.heading}>{"Location Details"}</h4>
+              <h4 className={styles.heading}>{"Episode Details"}</h4>
               <GridContainer>
                 <GridItem>
                   <div className={styles.detailContainer}>
