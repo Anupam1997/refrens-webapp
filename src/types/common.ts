@@ -1,7 +1,7 @@
 export const enum StatusType {
   ALIVE = "Alive",
   DEAD = "Dead",
-  UNKNOWN = "unkown",
+  UNKNOWN = "unknown",
 }
 
 export type Status = "Alive" | "Dead" | "unknown";
